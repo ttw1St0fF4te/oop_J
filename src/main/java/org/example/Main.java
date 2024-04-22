@@ -18,6 +18,14 @@ public class Main {
 }
 
 class Car {
+    public String getModelName() {
+        return modelName;
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+    }
+
     private String modelName;
 
     public Car(String modelName) {
