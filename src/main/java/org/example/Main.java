@@ -7,7 +7,8 @@ public class Main {
         carDealer.sell("Toyota Camry", 50);
         carDealer.calculateMaintenanceCost("Toyota Camry");
 
-        Car toyotaCamry = new Car("Toyota Camry");
+        Car toyotaCamry = new Car();
+        toyotaCamry.setModelName("Toyota Camry");
         toyotaCamry.drive();
         toyotaCamry.repair();
         toyotaCamry.refuel();
@@ -27,10 +28,6 @@ class Car {
     }
 
     private String modelName;
-
-    public Car(String modelName) {
-        this.modelName = modelName;
-    }
 
     public void drive() {
         System.out.println("Поездка на автомобиле: " + modelName);
