@@ -7,7 +7,7 @@ public class Main {
         carDealer.sell("Toyota Camry", 50);
         carDealer.calculateMaintenanceCost("Toyota Camry");
 
-        Car toyotaCamry = new Car();
+        Car toyotaCamry = new Car("Toyota Camry");
         toyotaCamry.setModelName("Toyota Camry");
         toyotaCamry.drive();
         toyotaCamry.repair();
@@ -15,10 +15,17 @@ public class Main {
 
         Car.manufactureCustom("Custom Model");
         carDealer.lease("Custom Model", 5);
+        carDealer.lease(true);
+        toyotaCamry.Rawr();
     }
 }
 
-class Car {
+class Car extends Ferrari {
+
+    public Car(String modelName) {
+        this.modelName = modelName;
+    }
+
     public String getModelName() {
         return modelName;
     }
@@ -48,6 +55,15 @@ class Car {
     public static void manufactureCustom(String modelName) {
         System.out.println("Производство индивидуального автомобиля: " + modelName);
     }
+
+    @Override
+    public void Rawr() {
+        System.out.println("RrrrrrrrrrrrrrRRoROROROrorr");
+    }
+}
+
+abstract class Ferrari {
+    public abstract void Rawr();
 }
 
 class CarDealer {
@@ -57,6 +73,15 @@ class CarDealer {
 
     public void lease(String modelName, int quantity) {
         System.out.println("Аренда автомобиля: " + modelName + ", количество: " + quantity);
+    }
+
+    public void lease(boolean A) {
+        if (A) {
+            System.out.println("Аренда прошла успешно!");
+        }
+        else {
+            System.out.println("Аренда прошла неудачно(");
+        }
     }
 
     public void calculateMaintenanceCost(String modelName) {
